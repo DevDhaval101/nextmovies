@@ -15,7 +15,7 @@ const Navbar = () => {
       <header className="bg-gradient-to-r from-red-500 via-[#ff69b4]-500 via-purple-500 to-blue-500 p-3">
         <section className="flex justify-between self-center items-center">
           <Link href="/" className="text-3xl">
-            Open Movies
+            Next Movies
           </Link>
           <button
             className="md:hidden text-2xl"

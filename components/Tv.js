@@ -77,7 +77,7 @@ const Tv = () => {
     const getTvShows = async () => {
       try {
         const res = await fetch(
-          `${TMDB_BASE_URL}/tv/airing_today?language=en-US&page=1&api_key=${TMDB_API_KEY}&region=IN`
+          '/api/tv/airing_today/1'
         );
 
         const data = await res.json();
