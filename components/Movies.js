@@ -77,11 +77,11 @@ const Movies = () => {
     const getMovies = async () => {
       try {
         const res = await fetch(
-          `${TMDB_BASE_URL}/movie/now_playing?language=en-US&page=1&api_key=${TMDB_API_KEY}&region=IN`
+          '/api/movies/now_playing/1'
         );
 
         const data = await res.json();
-        // console.log("1 DATA");
+        console.log("1 DATA");
         setMovies(data.results);
       } catch (error) {
         console.log(error);
