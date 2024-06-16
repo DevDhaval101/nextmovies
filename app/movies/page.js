@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from '@/components/Navbar'
 import Card from '@/components/Card'
 import Link from 'next/link';
 import { useEffect, useState } from "react";
@@ -102,6 +103,7 @@ const Test = () => {
 
   return (
     <section>
+      <Navbar />
       <div className="fixed top-0 z-10 bg-white">
         {/* <button
           className="border border-indigo-500 m-4 p-2 text-xl"
@@ -110,7 +112,7 @@ const Test = () => {
           Next
         </button> */}
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div className="flex flex-wrap gap-2 justify-center mt-2">
         {movies.map((movie) => (
           <Link href={`/video/${movie.id}`} key={movie.id}>
             <Card {...movie} key={movie.id} />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CelebCard from "@/components/CelebCard";
 import VideoPlayer from "@/components/videoplayer.jsx";
+import Navbar from '@/components/Navbar'
 
 const img_baseURLBanner = `https://image.tmdb.org/t/p/w1280`;
 const img_baseURLPoster = `https://image.tmdb.org/t/p/w500`;
@@ -70,6 +71,7 @@ const Video = async ({ params }) => {
 
   return (
     <>
+      <Navbar />
       <section className="flex relative">
         <Image
           src={`${img_baseURLBanner}${detail.backdrop_path}`}

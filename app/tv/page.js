@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from "@/components/Navbar";
 import Card from "@/components/Card";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -41,9 +42,12 @@ const TV = () => {
 
   const loadTvShows = async (page) => {
     const results = await fetchTvShows(page);
-    const newTvShows = results.filter(newTvShow => !tvShows.some((existingShow) => existingShow.id === newTvShow.id))
+    const newTvShows = results.filter(
+      (newTvShow) =>
+        !tvShows.some((existingShow) => existingShow.id === newTvShow.id)
+    );
 
-    setTvShows(prevShows => [...prevShows, ...newTvShows])
+    setTvShows((prevShows) => [...prevShows, ...newTvShows]);
   };
 
   useEffect(() => {
@@ -61,9 +65,9 @@ const TV = () => {
 
   useEffect(() => {
     setTimeout(() => {
-        window.scrollTo(0, sessionStorage.getItem('scrollY'))
-    }, 1000)
-  })
+      window.scrollTo(0, sessionStorage.getItem("scrollY"));
+    }, 1000);
+  });
 
   const handleScroll = (e) => {
     try {
@@ -85,13 +89,16 @@ const TV = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-2 justify-center">
-      {tvShows.map((tvShow) => (
-        <Link href={`/video-tv/${tvShow.id}`} key={tvShow.id}>
-          <Card {...tvShow} key={tvShow.id}></Card>
-        </Link>
-      ))}
-    </div>
+    <section>
+      <Navbar />
+      <div className="flex flex-wrap gap-2 justify-center mt-2">
+        {tvShows.map((tvShow) => (
+          <Link href={`/video-tv/${tvShow.id}`} key={tvShow.id}>
+            <Card {...tvShow} key={tvShow.id}></Card>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 };
 
