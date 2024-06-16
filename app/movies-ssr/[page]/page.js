@@ -4,7 +4,7 @@ import Link from "next/link";
 async function getMovies(pageNum) {
   // console.log("PAGENUM", pageNum);
   try {
-    const res = await fetch(`http://localhost:3000/api/movies/populer/${pageNum}`);
+    const res = await fetch(`http://localhost:3002/api/movies/populer/${pageNum}`);
 
     const data = await res.json();
     // console.log("DATA", data)

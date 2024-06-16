@@ -7,7 +7,7 @@ const img_baseURLPoster = `https://image.tmdb.org/t/p/w500`;
 
 async function getYoutubeVideoID(id) {
   try {
-    const res = await fetch(`http://localhost:3000/api/video-tv/${id}`);
+    const res = await fetch(`http://localhost:3002/api/video-tv/${id}`);
     const data = await res.json();
     // console.log("youtTube id recived", data.id);
     return data.id;
@@ -19,7 +19,7 @@ async function getYoutubeVideoID(id) {
 // async function checkVidoExist(id) {
 //   try {
 //     // check video exist on server or not
-//     const res = await fetch(`http://localhost:3000/api/isVideo/${id}`);
+//     const res = await fetch(`http://localhost:3002/api/isVideo/${id}`);
 //     const data = await res.json();
 //     const isVideo = data.success;
 //     console.log("DO video EXIST", isVideo);
@@ -31,7 +31,7 @@ async function getYoutubeVideoID(id) {
 
 async function getDetails(id) {
   try {
-    const res = await fetch(`http://localhost:3000/api/detail-tv/${id}`, {
+    const res = await fetch(`http://localhost:3002/api/detail-tv/${id}`, {
       cache: "no-store",
     });
     const data = await res.json();
