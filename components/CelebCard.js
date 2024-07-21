@@ -16,7 +16,7 @@ const CelebCard = (props) => {
     setImageError(true);
   };
   return (
-    <div className="flex-shrink-0 w-[150px]">
+    <div className="flex-shrink-0 w-[75px] md:w-[150px]">
       <Image
         src={
           imageError ? fallbackImageSrc : `${img_baseURLPoster}${profile_path}`
@@ -24,11 +24,11 @@ const CelebCard = (props) => {
         alt={name}
         width={150}
         height={225}
-        className="rounded-md w-[150px] h-[225px]"
+        className="rounded-md md:w-[150px] md:h-[225px] w-[75px] [h-125px]"
         onError={hadnleImageError}
       ></Image>
-      <p className="font-bold">{name}</p>
-      <p className="truncate hover:overflow-visible hover:z-10 bg-blend-normal">
+      <p className="font-bold text-xs md:text-base">{name}</p>
+      <p className="truncate hover:overflow-visible hover:z-10 bg-blend-normal text-xs md:text-base">
         {character}
       </p>
     </div>
