@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <>
       <header className="bg-gradient-to-r from-red-500 via-[#ff69b4]-500 via-purple-500 to-blue-500 p-3">
-        <section className="flex justify-between self-center items-center">
+        <section className="flex justify-between self-center items-center text-custom-dark-50">
           <Link href="/" className="text-3xl">
             Next Movies
           </Link>

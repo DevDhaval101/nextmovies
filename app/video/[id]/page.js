@@ -70,7 +70,7 @@ const Video = async ({ params }) => {
   // console.log("URL",detail.credits.cast.length)
 
   return (
-    <>
+    <div className="bg-custom-dark-50 text-custom-white-50 text-sm md:text-base">
       <Navbar />
       <section className="flex relative">
         <Image
@@ -96,11 +96,11 @@ const Video = async ({ params }) => {
         </div>
       </section>
 
-      <section className="bg-slate-300 p-3">
+      <section className="p-3">
         <div>
           <div className="mt-2">
             <p className="font-bold text-xl">Overview:</p>
-            <p>{detail.overview}</p>
+            <p className="text-justify">{detail.overview}</p>
           </div>
           <div>
             <p className="font-bold text-xl mt-2">Genres:</p>
@@ -156,7 +156,7 @@ const Video = async ({ params }) => {
           <p className="md:text-xl">Not available</p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
