@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CelebCard from "@/components/CelebCard";
 import SeasonsCard from "@/components/SeasonsCard";
+import Navbar from '@/components/Navbar'
 
 const img_baseURLBanner = `https://image.tmdb.org/t/p/w1280`;
 const img_baseURLPoster = `https://image.tmdb.org/t/p/w500`;
@@ -50,7 +51,8 @@ const Video = async ({ params }) => {
   const detail = await getDetails(params.id);
 
   return (
-    <>
+    <div className="bg-custom-dark-50 text-custom-white-50 text-sm md:text-base">
+      <Navbar />
       <section className="flex relative">
         <Image
           src={`${img_baseURLBanner}${detail.backdrop_path}`}
@@ -79,7 +81,7 @@ const Video = async ({ params }) => {
         </div>
       </section>
 
-      <section className="bg-slate-300 p-3">
+      <section className="p-3">
         <div>
           <div className="mt-2">
             <p className="font-bold text-xl">Overview:</p>
@@ -152,7 +154,7 @@ const Video = async ({ params }) => {
           <p className="md:text-xl">Not available</p>
         </div>
       )} */}
-    </>
+    </div>
   );
 };
 

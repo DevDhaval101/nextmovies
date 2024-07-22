@@ -24,7 +24,7 @@ const SeasonsCard = ({
   }
 
   return (
-    <div className="mb-2 text-justify md:flex md:w-[50%] md:shrink-0 md:border rounded-md ">
+    <div className="mb-2 text-justify md:flex md:w-[50%] md:shrink-0 md:border rounded-md">
       <Image
         src={imageError ? fallbackImageSrc :`${img_baseURL}${poster_path}`}
         height={112}
@@ -34,7 +34,7 @@ const SeasonsCard = ({
         onError={imageErrorHandler}
       ></Image>
       <div className="mx-2">
-        <p className="text-xl font-bold">{name}</p>
+        <p className="md:text-xl text-lg font-bold">{name}</p>
         <p>
           <span className="bg-black text-white text-sm w-fit px-2 py-.5 rounded-md mr-2">
             &#9733;{vote_average}
@@ -42,8 +42,8 @@ const SeasonsCard = ({
           {air_date && `${air_date.split("-")[0]} - ${episode_count} Episodes`}
         </p>
         <div className="mt-4">
-            <p className="text-xl font-bold">Overview</p>
-            <p>{overview}</p>
+            <p className="md:text-xl text-lg font-bold">Overview</p>
+            <p className="md:text-base text-xs">{overview}</p>
         </div>
       </div>
       <hr className="border md:border-none"/>
