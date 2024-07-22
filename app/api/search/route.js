@@ -8,8 +8,8 @@ export async function GET(req) {
   const query = searchParams.get('query')
   const filter = searchParams.get('filter')
 
-  console.log('Server Query:', query)
-  console.log('Server Filter:', filter)
+  // console.log('Server Query:', query)
+  // console.log('Server Filter:', filter)
 
 
   try {

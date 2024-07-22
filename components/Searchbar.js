@@ -25,7 +25,7 @@ const Searchbar = () => {
 
       const res = await fetch(`/api/search?query=${query}&filter=${filter.toLowerCase()}`, { signal });
       const data = await res.json();
-      console.log("RESULTS", data.results);
+      // console.log("RESULTS", data.results);
 
       setResults(data.results);
     };
@@ -64,7 +64,7 @@ const Searchbar = () => {
             <section className="absolute backdrop-blur-lg text-white p-2 rounded-md z-10 max-h-96 overflow-y-auto">
               <ul>
                 {results.map((val) => (
-                  <SearchCard key={val.key} {...val} filter={filter}/>
+                  <SearchCard key={val.id} {...val} filter={filter}/>
                 ))}
               </ul>
             </section>
