@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CelebCard from "@/components/CelebCard";
 import VideoPlayer from "@/components/videoplayer.jsx";
-import Navbar from '@/components/Navbar'
+import Navbar from "@/components/Navbar";
 
 const img_baseURLBanner = `https://image.tmdb.org/t/p/w1280`;
 const img_baseURLPoster = `https://image.tmdb.org/t/p/w500`;
@@ -131,16 +131,15 @@ const Video = async ({ params }) => {
           Watch Trailer
         </p>
       </div>
-
-      <iframe
-        className="mx-auto w-screen"
-        width={640}
-        height={480}
-        src={`https://www.youtube.com/embed/${youtubeVideoID}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <div className="relative w-full pt-[56.25%]">
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube.com/embed/${youtubeVideoID}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
       <div className="mt-2">
         <p className="text-2xl text-white p-2 text-center bg-gradient-to-r from-red-500 via-[#ff69b4]-500 via-purple-500 to-blue-500 ">
@@ -149,8 +148,9 @@ const Video = async ({ params }) => {
       </div>
 
       {isVideo ? (
-        <VideoPlayer src={`https://dexter-stream.in-maa-1.linodeobjects.com/hls-stream/${params.id}/master.m3u8`} />
-        
+        <VideoPlayer
+          src={`https://dexter-stream.in-maa-1.linodeobjects.com/hls-stream/${params.id}/master.m3u8`}
+        />
       ) : (
         <div className="flex justify-center items-center h-20">
           <p className="md:text-xl">Not available</p>

@@ -87,11 +87,13 @@ const Video = async ({ params }) => {
           </div>
           <div>
             <p className="font-bold text-xl mt-2">Genres:</p>
-            <p>{detail.genres.map(genre => genre.name).join(', ')}</p>
+            <p>{detail.genres.map((genre) => genre.name).join(", ")}</p>
           </div>
           <div>
             <p className="font-bold text-xl mt-2">Production:</p>
-            <p>{detail.production_companies.map(com => com.name).join(', ')}</p>
+            <p>
+              {detail.production_companies.map((com) => com.name).join(", ")}
+            </p>
           </div>
         </div>
       </section>
@@ -125,15 +127,15 @@ const Video = async ({ params }) => {
         </p>
       </div>
 
-      <iframe
-        className="mx-auto w-screen"
-        width={640}
-        height={480}
-        src={`https://www.youtube.com/embed/${youtubeVideoID}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <div className="relative pt-[56.25%] w-full">
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube.com/embed/${youtubeVideoID}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
       {/* <div className="mt-2">
         <p className="text-2xl text-white p-2 text-center bg-gradient-to-r from-red-500 via-[#ff69b4]-500 via-purple-500 to-blue-500 ">
