@@ -55,13 +55,15 @@ const Video = async ({ params }) => {
       <Navbar />
       <section className="flex relative">
         <Image
+          alt={detail.name}
           src={`${img_baseURLBanner}${detail.backdrop_path}`}
-          height={500}
-          width={500}
+          height={720}
+          width={1280}
           className="w-full object-fit"
         ></Image>
         <div className="absolute text-white flex items-end left-2 bottom-2">
           <Image
+            alt={detail.name}
             src={`${img_baseURLPoster}${detail.poster_path}`}
             height={122}
             width={75}
@@ -106,7 +108,7 @@ const Video = async ({ params }) => {
           {detail.credits.cast
             .filter((val) => val.known_for_department === "Acting")
             .map((cast) => (
-              <CelebCard data={cast} />
+              <CelebCard key={cast.id} data={cast} />
             ))}
         </div>
       </section>
@@ -118,7 +120,7 @@ const Video = async ({ params }) => {
             .reverse()
             .filter((val) => val.season_number >= 1)
             .map((season) => (
-              <SeasonsCard {...season} />
+              <SeasonsCard key={season.id} {...season} />
             ))}
         </div>
       </section>

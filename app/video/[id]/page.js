@@ -66,7 +66,8 @@ const Video = async ({ params }) => {
   const isVideo = await checkURI(params.id);
   const detail = await getDetails(params.id);
 
-  // const url = `${img_baseURLBanner}${detail.backdrop_path}`
+  const url = `${img_baseURLBanner}${detail.backdrop_path}`
+  // console.log(detail.toString())
   // console.log("URL",detail.credits.cast.length)
 
   return (
@@ -74,13 +75,15 @@ const Video = async ({ params }) => {
       <Navbar />
       <section className="flex relative">
         <Image
+          alt={detail.title}
           src={`${img_baseURLBanner}${detail.backdrop_path}`}
-          height={500}
-          width={500}
+          height={720}
+          width={1280}
           className="w-full object-fit"
         ></Image>
         <div className="absolute text-white flex items-end left-2 bottom-2">
           <Image
+            alt={detail.title}
             src={`${img_baseURLPoster}${detail.poster_path}`}
             height={122}
             width={75}
