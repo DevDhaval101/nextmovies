@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const TV = () => {
-  const [pageNum, setPageNum] = useState(1);
+  const [tvPageNum, setTvPageNum] = useState(1);
   const [tvShows, setTvShows] = useState([]);
 
   const fetchTvShows = async (page) => {
@@ -22,23 +22,23 @@ const TV = () => {
   // save tvshows between page navigation or reload
 
   useEffect(() => {
-    const storedPageNum = JSON.parse(sessionStorage.getItem("pageNum"));
+    const storedPageNum = JSON.parse(sessionStorage.getItem("tvPageNum"));
     const storedTvShows = JSON.parse(sessionStorage.getItem("tvShows"));
 
     if (storedTvShows) {
       setTvShows(storedTvShows);
     }
     if (storedPageNum) {
-      setPageNum(storedPageNum);
+      setTvPageNum(storedPageNum);
     } else {
       loadTvShows(1);
     }
   }, []);
 
   useEffect(() => {
-    sessionStorage.setItem("pageNum", JSON.stringify(pageNum));
+    sessionStorage.setItem("tvPageNum", JSON.stringify(tvPageNum));
     sessionStorage.setItem("tvShows", JSON.stringify(tvShows));
-  }, [tvShows, pageNum]);
+  }, [tvShows, tvPageNum]);
 
   const loadTvShows = async (page) => {
     const results = await fetchTvShows(page);
@@ -51,10 +51,10 @@ const TV = () => {
   };
 
   useEffect(() => {
-    if (pageNum > 1) {
-      loadTvShows(pageNum);
+    if (tvPageNum > 1) {
+      loadTvShows(tvPageNum);
     }
-  }, [pageNum]);
+  }, [tvPageNum]);
 
   // infinite scroll
   useEffect(() => {
@@ -75,7 +75,7 @@ const TV = () => {
         window.innerHeight + document.documentElement.scrollTop >=
         document.documentElement.scrollHeight
       ) {
-        setPageNum((pre) => pre + 1);
+        setTvPageNum((pre) => pre + 1);
       }
     } catch (error) {
       console.log(error);

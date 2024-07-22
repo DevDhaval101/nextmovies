@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from "react";
 
 const Test = () => {
-  const [pageNum, setPageNum] = useState(1);
+  const [moviePageNum, setMoviePageNum] = useState(1);
   const [movies, setMovies] = useState([]);
 
   // Function to fetch movies based on page number
@@ -25,14 +25,14 @@ const Test = () => {
   // Load movie data and pageNum from sessionStorage when the component mounts
   useEffect(() => {
     const storedMovies = JSON.parse(sessionStorage.getItem("movies"));
-    const storedPageNum = JSON.parse(sessionStorage.getItem("pageNum"));
+    const storedPageNum = JSON.parse(sessionStorage.getItem("moviePageNum"));
 
     if (storedMovies) {
       setMovies(storedMovies);
     }
 
     if (storedPageNum) {
-      setPageNum(storedPageNum);
+      setMoviePageNum(storedPageNum);
     } else {
       // If no pageNum is in sessionStorage, load the first page of movies
       loadMovies(1);
@@ -42,8 +42,8 @@ const Test = () => {
   // Save movie data and pageNum to sessionStorage whenever they change
   useEffect(() => {
     sessionStorage.setItem("movies", JSON.stringify(movies));
-    sessionStorage.setItem("pageNum", JSON.stringify(pageNum));
-  }, [movies, pageNum]);
+    sessionStorage.setItem("moviePageNum", JSON.stringify(moviePageNum));
+  }, [movies, moviePageNum]);
 
   const loadMovies = async (page) => {
     const results = await fetchMovies(page);
@@ -57,14 +57,14 @@ const Test = () => {
   };
 
   const handleNextClick = () => {
-    setPageNum((prev) => prev + 1);
+    setMoviePageNum((prev) => prev + 1);
   };
 
   useEffect(() => {
-    if (pageNum > 1) {
-      loadMovies(pageNum);
+    if (moviePageNum > 1) {
+      loadMovies(moviePageNum);
     }
-  }, [pageNum]);
+  }, [moviePageNum]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -88,7 +88,7 @@ const Test = () => {
     // console.log("document heighr", document.documentElement.scrollHeight)
     try {
       if(window.innerHeight + document.documentElement.scrollTop >= document.documentElement.scrollHeight){
-        setPageNum(pre => pre + 1)
+        setMoviePageNum(pre => pre + 1)
       }
     } catch (error) {
       console.log(error)

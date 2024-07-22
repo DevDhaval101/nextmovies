@@ -24,7 +24,7 @@ async function getPopulerTvShows() {
     const res = await fetch('/api/tv/populer/1');
 
     const data = await res.json();
-    console.log("1 DATA");
+    // console.log("1 DATA");
     return data.results;
   } catch (error) {
     console.log(error);
@@ -36,7 +36,7 @@ async function getTopratedMovies() {
     const res = await fetch('/api/tv/top_rated/1');
 
     const data = await res.json();
-    console.log("1 DATA");
+    // console.log("1 DATA");
     return data.results;
   } catch (error) {
     console.log(error);
@@ -48,7 +48,7 @@ async function getOnTheAirTvShows() {
     const res = await fetch('/api/tv/on_the_air/1');
 
     const data = await res.json();
-    console.log("1 DATA");
+    // console.log("1 DATA");
     return data.results;
   } catch (error) {
     console.log(error);

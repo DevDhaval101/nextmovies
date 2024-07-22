@@ -24,7 +24,7 @@ async function getPopulerMovies() {
     const res = await fetch('/api/movies/populer/1');
 
     const data = await res.json();
-    console.log("1 DATA");
+    // console.log("1 DATA");
     return data.results;
   } catch (error) {
     console.log(error);
@@ -36,7 +36,7 @@ async function getTopratedMovies() {
     const res = await fetch('/api/movies/top_rated/1');
 
     const data = await res.json();
-    console.log("1 DATA");
+    // console.log("1 DATA");
     return data.results;
   } catch (error) {
     console.log(error);
@@ -48,7 +48,7 @@ async function getUpcomingMovies() {
     const res = await fetch('/api/movies/upcoming/1');
 
     const data = await res.json();
-    console.log("1 DATA");
+    // console.log("1 DATA");
     return data.results;
   } catch (error) {
     console.log(error);
@@ -81,7 +81,7 @@ const Movies = () => {
         );
 
         const data = await res.json();
-        console.log("1 DATA");
+        // console.log("1 DATA");
         setMovies(data.results);
       } catch (error) {
         console.log(error);
